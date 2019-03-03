@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+	<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" 
+		"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<!-- namespace:表示命名空间，值是唯一的 -->
+<mapper namespace="userDao">
+	<insert id="insertUser" parameterType="cn.tedu.bean.User">
+		insert into t_user(username,password,phone,email)
+		values(#{username},#{password},#{phone},#{email})
+	</insert>
+	<update id="updateUser" parameterType="cn.tedu.bean.User">
+	update t_user set username=#{username},password=#{password},phone=#{phone},email=#{email} where id=#{id}
+	</update>
+	<delete id="deleteUser" parameterType="cn.tedu.bean.User">
+	delete from t_user where id=#{id}
+	</delete>
+	<select id="selectById" parameterType="cn.tedu.bean.User">
+	 select username,password,phone,email from t_user where id=#{id}
+	</select>
+
+
+</mapper>
